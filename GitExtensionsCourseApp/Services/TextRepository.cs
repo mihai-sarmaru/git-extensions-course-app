@@ -12,11 +12,15 @@ namespace GitExtensionsCourseApp.Services {
         }
 
         private bool TextsPathExists() {
-            return Directory.Exists(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, TEXT_FOLDER));
+            return Directory.Exists(GetTextsPath());
         }
 
         private void CreateTextsPath() {
-            Directory.CreateDirectory(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, TEXT_FOLDER));
+            Directory.CreateDirectory(GetTextsPath());
+        }
+
+        private string GetTextsPath() {
+            return Path.Combine(AppDomain.CurrentDomain.BaseDirectory, TEXT_FOLDER);
         }
     }
 }

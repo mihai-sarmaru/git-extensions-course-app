@@ -21,7 +21,7 @@ namespace GitExtensionsCourseAppTests.Services {
         }
 
         [TestMethod]
-        public void TestGetTextsPath() {
+        public void TestTextsPathExists() {
             Assert.IsFalse((bool)_privateRepo.Invoke("TextsPathExists"));
         }
 
@@ -29,6 +29,11 @@ namespace GitExtensionsCourseAppTests.Services {
         public void TestCreateTextsPath() {
             _privateRepo.Invoke("CreateTextsPath");
             Assert.IsTrue((bool)_privateRepo.Invoke("TextsPathExists"));
+        }
+
+        [TestMethod]
+        public void TestGetTextsPath() {
+            Assert.AreEqual(TEXT_FOLDER_PATH, (string)_privateRepo.Invoke("GetTextsPath"));
         }
     }
 }
