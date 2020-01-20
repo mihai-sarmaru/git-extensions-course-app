@@ -64,6 +64,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Containers\ContainerHelper.cs" />
     <Compile Include="Models\Person.cs" />
     <Compile Include="Services\ITextRepository.cs" />
     <Compile Include="Services\TextRepository.cs" />
