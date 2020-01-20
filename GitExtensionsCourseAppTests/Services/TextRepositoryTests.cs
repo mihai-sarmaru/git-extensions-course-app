@@ -1,7 +1,9 @@
 ﻿using GitExtensionsCourseApp.Containers;
+using GitExtensionsCourseApp.Models;
 using GitExtensionsCourseApp.Services;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using Unity;
 
@@ -18,6 +20,14 @@ namespace GitExtensionsCourseAppTests.Services {
             _repo = ContainerHelper.Container.Resolve<TextRepository>();
             _privateRepo = new PrivateObject(_repo);
             if (Directory.Exists(TEXT_FOLDER_PATH)) Directory.Delete(TEXT_FOLDER_PATH, true); 
+        }
+
+        [TestMethod]
+        public void TestGetAllPersons() {
+            List<Person> personList = new List<Person>(_repo.GetAllPersons());
+
+            Assert.IsNotNull(personList);
+            Assert.AreEqual(0, personList.Count);
         }
 
         [TestMethod]

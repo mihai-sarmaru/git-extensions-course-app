@@ -6,9 +6,17 @@ using System.IO;
 namespace GitExtensionsCourseApp.Services {
     public class TextRepository : ITextRepository {
         private readonly string TEXT_FOLDER = "texts";
+        private readonly string SEARCH_PATTERN = "*.txt";
 
         public IEnumerable<Person> GetAllPersons() {
-            throw new NotImplementedException();
+            if (!TextsPathExists()) CreateTextsPath();
+
+            List<Person> personList = new List<Person>();
+            foreach (string fileName in Directory.GetFiles(GetTextsPath(), SEARCH_PATTERN)) {
+                string[] fileLines = File.ReadAllLines(fileName);
+                personList.Add(new Person() { Name = ExtractName(fileLines), Age = ExtractAge(fileLines) });
+            }
+            return personList;
         }
 
         private bool TextsPathExists() {
