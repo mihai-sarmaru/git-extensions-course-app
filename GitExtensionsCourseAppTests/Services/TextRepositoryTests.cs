@@ -35,5 +35,15 @@ namespace GitExtensionsCourseAppTests.Services {
         public void TestGetTextsPath() {
             Assert.AreEqual(TEXT_FOLDER_PATH, (string)_privateRepo.Invoke("GetTextsPath"));
         }
+
+        [DataTestMethod]
+        [DataRow("", null)]
+        [DataRow("", new object[1] { new string[] { } })]
+        [DataRow("", new object[1] { new string[1] { "" } })]
+        [DataRow("Smith", new object[1] { new string[1] { "Smith" } })]
+        public void TestExtractName(string expected, string[] input) {
+            string result = (string)_privateRepo.Invoke("ExtractName", new object[1] { input });
+            Assert.AreEqual(expected, result);
+        }
     }
 }

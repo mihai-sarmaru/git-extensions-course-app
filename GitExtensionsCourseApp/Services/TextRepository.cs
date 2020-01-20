@@ -22,5 +22,11 @@ namespace GitExtensionsCourseApp.Services {
         private string GetTextsPath() {
             return Path.Combine(AppDomain.CurrentDomain.BaseDirectory, TEXT_FOLDER);
         }
+
+        private string ExtractName(string[] fileLines) {
+            if (fileLines == null) return string.Empty;
+            if (fileLines.Length < 1 || string.IsNullOrEmpty(fileLines[0])) return string.Empty;
+            return fileLines[0];
+        }
     }
 }
