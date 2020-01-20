@@ -45,5 +45,20 @@ namespace GitExtensionsCourseAppTests.Services {
             string result = (string)_privateRepo.Invoke("ExtractName", new object[1] { input });
             Assert.AreEqual(expected, result);
         }
+
+        [DataTestMethod]
+        [DataRow(0, null)]
+        [DataRow(0, new object[1] { new string[] { } })]
+        [DataRow(0, new object[1] { new string[1] { "" } })]
+        [DataRow(0, new object[1] { new string[2] { "", "Smith" } })]
+        [DataRow(7, new object[1] { new string[2] { "", "7" } })]
+        [DataRow(0, new object[1] { new string[2] { "", "" } })]
+        [DataRow(0, new object[1] { new string[2] { "", "Smith7" } })]
+        [DataRow(7, new object[1] { new string[2] { "", "7" } })]
+        [DataRow(0, new object[1] { new string[2] { "", "0.7" } })]
+        public void TestExtractAge(int expected, string[] input) {
+            int result = (int)_privateRepo.Invoke("ExtractAge", new object[1] { input });
+            Assert.AreEqual(expected, result);
+        }
     }
 }

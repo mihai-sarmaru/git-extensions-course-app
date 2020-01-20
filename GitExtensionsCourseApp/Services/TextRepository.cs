@@ -28,5 +28,12 @@ namespace GitExtensionsCourseApp.Services {
             if (fileLines.Length < 1 || string.IsNullOrEmpty(fileLines[0])) return string.Empty;
             return fileLines[0];
         }
+
+        private int ExtractAge(string[] fileLines) {
+            if (fileLines == null) return 0;
+            if (fileLines.Length < 2 || string.IsNullOrEmpty(fileLines[1])) return 0;
+            int result = 0;
+            return int.TryParse(fileLines[1], out result) ? result : 0;
+        }
     }
 }
