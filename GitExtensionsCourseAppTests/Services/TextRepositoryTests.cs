@@ -22,13 +22,13 @@ namespace GitExtensionsCourseAppTests.Services {
 
         [TestMethod]
         public void TestGetTextsPath() {
-            Assert.IsFalse((bool)_privateRepo.Invoke("GetTextsPath"));
+            Assert.IsFalse((bool)_privateRepo.Invoke("TextsPathExists"));
         }
 
         [TestMethod]
         public void TestCreateTextsPath() {
             _privateRepo.Invoke("CreateTextsPath");
-            Assert.IsTrue((bool)_privateRepo.Invoke("GetTextsPath"));
+            Assert.IsTrue((bool)_privateRepo.Invoke("TextsPathExists"));
         }
     }
 }

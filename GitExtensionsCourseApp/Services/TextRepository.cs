@@ -11,7 +11,7 @@ namespace GitExtensionsCourseApp.Services {
             throw new NotImplementedException();
         }
 
-        private bool GetTextsPath() {
+        private bool TextsPathExists() {
             return Directory.Exists(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, TEXT_FOLDER));
         }
 
