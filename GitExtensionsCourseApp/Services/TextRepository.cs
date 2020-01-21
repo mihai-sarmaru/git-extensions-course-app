@@ -1,4 +1,5 @@
 ﻿using GitExtensionsCourseApp.Models;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -7,6 +8,7 @@ namespace GitExtensionsCourseApp.Services {
     public class TextRepository : ITextRepository {
         private readonly string TEXT_FOLDER = "texts";
         private readonly string SEARCH_PATTERN = "*.txt";
+        private readonly string JSON_NAME = "merged.json";
 
         public IEnumerable<Person> GetAllPersons() {
             if (!TextsPathExists()) CreateTextsPath();
@@ -30,6 +32,12 @@ namespace GitExtensionsCourseApp.Services {
 
         public int Count() {
             return new List<Person>(GetAllPersons()).Count;
+        }
+
+        public void MergePersonsToFile() {
+            if (!TextsPathExists()) CreateTextsPath();
+            string jsonPath = Path.Combine(GetTextsPath(), JSON_NAME);
+            File.WriteAllText(jsonPath, JsonConvert.SerializeObject(new List<Person>(GetAllPersons())));
         }
 
         private bool TextsPathExists() {
