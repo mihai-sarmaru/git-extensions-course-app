@@ -14,12 +14,14 @@ namespace GitExtensionsCourseApp.ViewModels {
         public double Average { get; set; }
         public bool IsCalculated { get; set; }
         public bool HasEmployees { get; set; }
+        public bool IsMerged { get; set; }
         public ICommand CalculateCommand { get; private set; }
         public ICommand MergeFilesCommand { get; private set; }
 
         public ActionsViewModel(ITextRepository repo) {
             _repo = repo;
             IsCalculated = false;
+            IsMerged = false;
             HasEmployees = _repo.Count() != 0;
             CalculateCommand = new RelayCommand(OnCalculate);
             MergeFilesCommand = new RelayCommand(OnMergeFiles);
@@ -28,6 +30,8 @@ namespace GitExtensionsCourseApp.ViewModels {
 
         private void OnMergeFiles() {
             _repo.MergePersonsToFile();
+            HasEmployees = false;
+            IsMerged = true;
         }
 
         private void OnCalculate() {
@@ -37,6 +41,7 @@ namespace GitExtensionsCourseApp.ViewModels {
 
         private void OnUpdateMergeButtonMessageReceived(UpdateMergeButtonMessage message) {
             HasEmployees = _repo.Count() != 0;
+            IsMerged = false;
         }
     }
 }

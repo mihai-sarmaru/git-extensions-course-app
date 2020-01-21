@@ -16,6 +16,7 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
         <Button Content="Calculate Average Age" Command="{Binding CalculateCommand}" Margin="30, 10" />
@@ -26,6 +27,8 @@
         <Button Content="Merge Files" Grid.Row="2" Margin="30, 50, 30, 10"
                 Command="{Binding MergeFilesCommand}"
                 IsEnabled="{Binding HasEmployees}"/>
+        <TextBlock Text="merged.json created" HorizontalAlignment="Center" FontSize="14" Grid.Row="3"
+                   Visibility="{Binding IsMerged, Converter={StaticResource VisibilityConverter}}"/>
 
     </Grid>
     

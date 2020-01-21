@@ -20,12 +20,15 @@ namespace GitExtensionsCourseAppTests.ViewModels {
         public void TestActionsViewModel() {
             Assert.IsNotNull(_model.Average);
             Assert.IsFalse(_model.IsCalculated);
+            Assert.IsFalse(_model.IsMerged);
         }
 
         [TestMethod]
         public void TestOnMergeFiles() {
             _model.MergeFilesCommand.Execute(null);
             Assert.IsTrue(File.Exists(JSON_PATH));
+            Assert.IsFalse(_model.HasEmployees);
+            Assert.IsTrue(_model.IsMerged);
         }
 
         [TestMethod]
