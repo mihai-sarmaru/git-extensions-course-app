@@ -44,6 +44,34 @@ Advanced Features:
 - Patches
 - Prune Branches
 
-Jira Workflow (with Pull-Requests)
+Workflows:
+- Jira Workflow (with Pull-Requests)
+- Github Workflow (with Pull-Requests)
 
-Github Workflow (with Pull-Requests)
+
+
+Homework:
+
+Add default.txt (no programming)
+- Add a default.txt file which has Default Name for name and 100 for age.
+
+Remove homework text (no programming)
+- Remove the homework text using Git only.
+
+Change List title to File Contents (beginner)
+- Change the list title from "Extracted names:" to "File Contents:"
+
+Remove homework text (beginner)
+- Modify the code and remove the homework text below the buttons.
+
+Add unit tests for Person model (medium)
+- Add unit tests for Person model in it's own class
+
+Check for negative age (medium)
+- ExtractAge method from TextRepository must verify for negative numbers. Make sure you also update the unit tests for this methods.
+
+Implement sum of all ages (advanced)
+- Add a button that calculates the sum of all ages. Make sure it uses MVVM and the corresponding commands and methods are tested.
+
+Write unit tests for the converter and fix possible bug (advanced)
+- Create the corresponding class and write unit tests to verify the BoolToVisibilityConverter's methods as they should. Unit test should include private method as well.
