@@ -88,6 +88,7 @@
     <Compile Include="Containers\ContainerHelper.cs" />
     <Compile Include="Converters\BoolToVisibilityConverter.cs" />
     <Compile Include="MainWindowViewModel.cs" />
+    <Compile Include="Messages\UpdateMergeButtonMessage.cs" />
     <Compile Include="Models\Person.cs" />
     <Compile Include="Services\ITextRepository.cs" />
     <Compile Include="Services\TextRepository.cs" />
