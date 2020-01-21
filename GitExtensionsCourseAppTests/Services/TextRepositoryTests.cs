@@ -47,6 +47,13 @@ namespace GitExtensionsCourseAppTests.Services {
         }
 
         [TestMethod]
+        public void TestCount() {
+            Assert.AreEqual(0, _repo.Count());
+            AddTestPerson("TestName", 7);
+            Assert.AreEqual(1, _repo.Count());
+        }
+
+        [TestMethod]
         public void TestTextsPathExists() {
             Assert.IsFalse((bool)_privateRepo.Invoke("TextsPathExists"));
         }

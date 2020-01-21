@@ -28,6 +28,10 @@ namespace GitExtensionsCourseApp.Services {
             return sumOfAges / personList.Count;
         }
 
+        public int Count() {
+            return new List<Person>(GetAllPersons()).Count;
+        }
+
         private bool TextsPathExists() {
             return Directory.Exists(GetTextsPath());
         }
