@@ -31,7 +31,7 @@
             </ListBox.ItemTemplate>
         </ListBox>
 
-        <Button Content="Refresh" Grid.Row="2" Margin="75, 5"/>
+        <Button Content="Refresh" Command="{Binding RefreshCommand}" Grid.Row="2" Margin="75, 5"/>
 
     </Grid>
 </UserControl>
