@@ -1,6 +1,8 @@
 ﻿using System.Collections.ObjectModel;
 using System.Windows.Input;
 using GalaSoft.MvvmLight.Command;
+using GalaSoft.MvvmLight.Messaging;
+using GitExtensionsCourseApp.Messages;
 using GitExtensionsCourseApp.Models;
 using GitExtensionsCourseApp.Services;
 using PropertyChanged;
@@ -20,6 +22,7 @@ namespace GitExtensionsCourseApp.ViewModels {
 
         private void OnRefresh() {
             PersonList = new ObservableCollection<Person>(_repo.GetAllPersons());
+            Messenger.Default.Send(new UpdateMergeButtonMessage());
         }
     }
 }

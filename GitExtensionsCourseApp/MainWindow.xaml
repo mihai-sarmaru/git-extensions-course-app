@@ -18,6 +18,10 @@
         <DataTemplate DataType="{x:Type model:PersonListViewModel}">
             <view:PersonsListView/>
         </DataTemplate>
+
+        <DataTemplate DataType="{x:Type model:ActionsViewModel}">
+            <view:ActionsView/>
+        </DataTemplate>
     </Window.Resources>
     
     <Grid Margin="5">
@@ -27,6 +31,7 @@
         </Grid.ColumnDefinitions>
 
         <ContentControl Content="{Binding List}"/>
+        <ContentControl Content="{Binding Actions}" Grid.Column="1"/>
 
     </Grid>
 </Window>
