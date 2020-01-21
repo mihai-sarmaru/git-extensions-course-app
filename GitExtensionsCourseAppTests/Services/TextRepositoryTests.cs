@@ -12,7 +12,7 @@ namespace GitExtensionsCourseAppTests.Services {
     public class TextRepositoryTests {
         private TextRepository _repo;
         private PrivateObject _privateRepo;
-
+        private readonly string EXTENSION = ".txt";
         private readonly string TEXT_FOLDER_PATH = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "texts");
 
         [TestInitialize]
@@ -28,6 +28,22 @@ namespace GitExtensionsCourseAppTests.Services {
 
             Assert.IsNotNull(personList);
             Assert.AreEqual(0, personList.Count);
+
+            AddTestPerson("TestName", 7);
+            personList = new List<Person>(_repo.GetAllPersons());
+
+            Assert.IsNotNull(personList);
+            Assert.AreEqual(1, personList.Count);
+        }
+
+        [DataTestMethod]
+        [DataRow("TestName", 7)]
+        [DataRow("TestName", 0)]
+        public void TestCalculateAvaregeAge(string name, int age) {
+            AddTestPerson(name, age);
+            double result = _repo.CalculateAverageAge();
+
+            Assert.AreEqual(age, result);
         }
 
         [TestMethod]
@@ -69,6 +85,15 @@ namespace GitExtensionsCourseAppTests.Services {
         public void TestExtractAge(int expected, string[] input) {
             int result = (int)_privateRepo.Invoke("ExtractAge", new object[1] { input });
             Assert.AreEqual(expected, result);
+        }
+
+        private void AddTestPerson(string name, int age) {
+            if (!(bool)_privateRepo.Invoke("TextsPathExists")) _privateRepo.Invoke("CreateTextsPath");
+
+            Person person = new Person() { Name = name, Age = age };
+            string path = Path.Combine(TEXT_FOLDER_PATH, person.ID + EXTENSION);
+
+            File.WriteAllLines(path, new string[] { person.Name, person.Age.ToString() });
         }
     }
 }

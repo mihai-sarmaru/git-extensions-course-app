@@ -19,6 +19,15 @@ namespace GitExtensionsCourseApp.Services {
             return personList;
         }
 
+        public double CalculateAverageAge() {
+            List<Person> personList = new List<Person>(GetAllPersons());
+            if (personList.Count == 0) return 0;
+
+            double sumOfAges = 0;
+            foreach (Person person in personList) sumOfAges += person.Age;
+            return sumOfAges / personList.Count;
+        }
+
         private bool TextsPathExists() {
             return Directory.Exists(GetTextsPath());
         }
