@@ -4,9 +4,29 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GitExtensionsCourseApp"
+        xmlns:view="clr-namespace:GitExtensionsCourseApp.Views"
+        xmlns:model="clr-namespace:GitExtensionsCourseApp.ViewModels"
         mc:Ignorable="d"
-        Title="Visual Git with GitExtensions course app - Mihai Sarmaru" Height="450" Width="800">
-    <Grid>
-        
+        ResizeMode="NoResize"
+        Title="Visual Git with GitExtensions course app - Mihai Sarmaru" Height="400" Width="500">
+
+    <Window.DataContext>
+        <local:MainWindowViewModel/>
+    </Window.DataContext>
+
+    <Window.Resources>
+        <DataTemplate DataType="{x:Type model:PersonListViewModel}">
+            <view:PersonsListView/>
+        </DataTemplate>
+    </Window.Resources>
+    
+    <Grid Margin="5">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <ContentControl Content="{Binding List}"/>
+
     </Grid>
 </Window>
