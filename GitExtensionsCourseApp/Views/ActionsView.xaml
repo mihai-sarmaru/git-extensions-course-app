@@ -17,6 +17,7 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
         <Button Content="Calculate Average Age" Command="{Binding CalculateCommand}" Margin="30, 10" />
@@ -29,6 +30,10 @@
                 IsEnabled="{Binding HasEmployees}"/>
         <TextBlock Text="merged.json created" HorizontalAlignment="Center" FontSize="14" Grid.Row="3"
                    Visibility="{Binding IsMerged, Converter={StaticResource VisibilityConverter}}"/>
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Grid.Row="3" Margin="0, 50, 0, 0">
+            <TextBlock Text="Homework:"/>
+            <TextBlock Text="This text must be removed from here"/>
+        </StackPanel>
 
     </Grid>
     
