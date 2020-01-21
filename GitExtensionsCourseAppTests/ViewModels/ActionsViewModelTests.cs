@@ -1,12 +1,15 @@
 ﻿using GitExtensionsCourseApp.Containers;
 using GitExtensionsCourseApp.ViewModels;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
+using System.IO;
 using Unity;
 
 namespace GitExtensionsCourseAppTests.ViewModels {
     [TestClass]
     public class ActionsViewModelTests {
         private ActionsViewModel _model;
+        private readonly string JSON_PATH = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "texts", "merged.json");
 
         [TestInitialize]
         public void Initialize() {
@@ -17,6 +20,12 @@ namespace GitExtensionsCourseAppTests.ViewModels {
         public void TestActionsViewModel() {
             Assert.IsNotNull(_model.Average);
             Assert.IsFalse(_model.IsCalculated);
+        }
+
+        [TestMethod]
+        public void TestOnMergeFiles() {
+            _model.MergeFilesCommand.Execute(null);
+            Assert.IsTrue(File.Exists(JSON_PATH));
         }
 
         [TestMethod]
