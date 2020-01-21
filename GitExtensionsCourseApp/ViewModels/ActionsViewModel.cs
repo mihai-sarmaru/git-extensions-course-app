@@ -10,11 +10,13 @@ namespace GitExtensionsCourseApp.ViewModels {
 
         public double Average { get; set; }
         public bool IsCalculated { get; set; }
+        public bool HasEmployees { get; set; }
         public ICommand CalculateCommand { get; private set; }
 
         public ActionsViewModel(ITextRepository repo) {
             _repo = repo;
             IsCalculated = false;
+            HasEmployees = repo.Count() != 0;
             CalculateCommand = new RelayCommand(OnCalculate);
         }
 

@@ -23,7 +23,8 @@
                    Visibility="{Binding IsCalculated, Converter={StaticResource VisibilityConverter}}">
             <Run Text="Average: "/> <Run Text="{Binding Average}"/>
         </TextBlock>
-        <Button Content="Merge Files" Grid.Row="2" Margin="30, 50, 30, 10"/>
+        <Button Content="Merge Files" Grid.Row="2" Margin="30, 50, 30, 10"
+                IsEnabled="{Binding HasEmployees}"/>
 
     </Grid>
     
