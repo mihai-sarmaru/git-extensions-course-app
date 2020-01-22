@@ -2,14 +2,14 @@
 
 Requirements:
 - Visual Studio Code
-- Visual Studio (optional - needed for homework)
+- Visual Studio Community (optional - needed for homework)
 
 Quick Git Introduction:
 - PowerPoint presentation with basic Git explinations
 
 Git Extensions Setup:
 - Install Git and GitExtensions
-- Sttings for user / email / diff / merge (VS Code)
+- Settings for user / email / diff / merge (VS Code)
 - Clone Repository
 - UI overview (branches, timeline, commit, diff, console)
 
