@@ -14,7 +14,7 @@ namespace GitExtensionsCourseAppTests.Services {
         private PrivateObject _privateRepo;
         private readonly string EXTENSION = ".txt";
         private readonly string TEXT_FOLDER_PATH = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "texts");
-        private readonly string JSON_PATH = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "texts", "merged.json");
+        private readonly string JSON_PATH = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "texts", "mergedFile.json");
 
         [TestInitialize]
         public void Initialize() {
@@ -57,7 +57,7 @@ namespace GitExtensionsCourseAppTests.Services {
         [TestMethod]
         public void TestMergePersonsToFile() {
             AddTestPerson("TestName", 7);
-            _repo.MergePersonsToFile();
+            _repo.MergePersons();
             Assert.IsTrue(File.Exists(JSON_PATH));
         }
 

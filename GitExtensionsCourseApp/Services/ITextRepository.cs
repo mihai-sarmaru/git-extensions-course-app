@@ -6,6 +6,6 @@ namespace GitExtensionsCourseApp.Services {
         IEnumerable<Person> GetAllPersons();
         double CalculateAverageAge();
         int Count();
-        void MergePersonsToFile();
+        void MergePersons();
     }
 }
