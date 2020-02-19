@@ -5,7 +5,7 @@ Requirements:
 - Visual Studio Community (optional - needed for homework)
 
 Quick Git Introduction:
-- PowerPoint presentation with basic Git explinations
+- PowerPoint presentation with basic Git explanations
 
 Git Extensions Setup:
 - Install Git and GitExtensions
@@ -35,7 +35,7 @@ Conflicts: (on 3rd iteration)
 
 Advanced Features:
 - Edit .gitIgnore
-- Commit (Selective Stage and Reset, Ammend Commit)
+- Commit (Selective Stage and Reset, Amend Commit)
 - Force Push
 - Revert Commit
 - Reset Branch
@@ -43,6 +43,7 @@ Advanced Features:
 - Tags
 - Patches
 - Prune Branches
+- Rebase Branch
 
 Workflows:
 - Jira Workflow (with Pull-Requests)
