@@ -8,7 +8,7 @@ namespace GitExtensionsCourseApp.Services {
     public class TextRepository : ITextRepository {
         private readonly string TEXT_FOLDER = "texts";
         private readonly string SEARCH_PATTERN = "*.txt";
-        private readonly string JSON_NAME = "merged.json";
+        private readonly string JSON_NAME = "mergedFiles.json";
 
         public IEnumerable<Person> GetAllPersons() {
             if (!TextsPathExists()) CreateTextsPath();
@@ -34,7 +34,7 @@ namespace GitExtensionsCourseApp.Services {
             return new List<Person>(GetAllPersons()).Count;
         }
 
-        public void MergePersonsToFile() {
+        public void MergePersonsToJSON() {
             if (!TextsPathExists()) CreateTextsPath();
             string jsonPath = Path.Combine(GetTextsPath(), JSON_NAME);
             File.WriteAllText(jsonPath, JsonConvert.SerializeObject(new List<Person>(GetAllPersons())));
