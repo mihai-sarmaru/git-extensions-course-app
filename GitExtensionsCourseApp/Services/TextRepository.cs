@@ -60,7 +60,7 @@ namespace GitExtensionsCourseApp.Services {
 
         private int ExtractAge(string[] fileLines) {
             if (fileLines == null) return 0;
-            if (fileLines.Length < 2 || string.IsNullOrEmpty(fileLines[1])) return 0;
+            if (fileLines.Length < 2 || string.IsNullOrEmpty(fileLines[1]|| fileLines[1] < 0)) return 0;
             int result = 0;
             return int.TryParse(fileLines[1], out result) ? result : 0;
         }

@@ -12,7 +12,7 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <TextBlock Text="Extracted names:" FontSize="14" Margin="0, 5, 0, 5"/>
+        <TextBlock Text="File Contents:" FontSize="14" Margin="0, 5, 0, 5"/>
 
         <ListBox x:Name="PersonsListBox" HorizontalContentAlignment="Stretch" ItemsSource="{Binding PersonList}" Grid.Row="1">
             <ListBox.ItemTemplate>
